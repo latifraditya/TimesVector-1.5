@@ -1,11 +1,11 @@
 README FILE
 
-TimesVector v1.0
+TimesVector v1.5
 
 This is a README file for quick installation and running TimesVector. The full manual with description and examples of input/output file formats are available under the 'docs' directory or the website http://biohealth.snu.ac.kr/software/TimesVector/.
 
-TimesVector is written in Python2.7.
-Several pre-requisites are required by TimesVector as listed below:
+TimesVector is written in Python3
+Several pre-requisites required by TimesVector as listed below:
 
 	Required python modules:
 	1) Scipy
@@ -15,11 +15,10 @@ Several pre-requisites are required by TimesVector as listed below:
 	1) skmeans
 	2) ggplot2
 
-	Also "Rscript", included in R, is required and should be set in the $PATH variable for plotting gene expression patterns.
 
 TimesVector is currently only available for Linux platforms.
 To install TimesVector execute the following commands. 
-$ tar -xzvf TimesVector_v1.0.tar.gz
+$ tar -xzvf TimesVector_v1.5.tar.gz
 $ export TIMESVECTOR=/<path to TimesVector>/bin
 $ export PATH=$PATH:$TIMESVECTOR
 
@@ -56,5 +55,3 @@ The command line for executing TimesVector using the example data will be as fol
 $ TimesVector -g example/GSE11651_data.txt -c 5 -t 3 -d m -k 300 -o results
 
 With large K's (>200) TimesVector takes several minutes to run, so please be patient.
-
-
