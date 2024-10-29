@@ -1,0 +1,5 @@
+gene_expression_file=example/GSE11651_data.txt
+classes=5
+timepoints=3
+data_type=n
+K=120
