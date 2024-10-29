@@ -97,7 +97,7 @@ mkdir $outdir 2>/dev/null
 skmeans_out_f=$outdir/K$k.cluster
 
 echo ""
-echo "TimesVector v1.0"
+echo "TimesVector v1.5"
 echo ""
 echo "------------------------------------------------------"
 echo "[Configurations]"
@@ -131,7 +131,7 @@ fi
 #
 echo "generating input data..."
 mkdir $outdir/metadata 2>/dev/null
-python $TIMESVECTOR/calc_clustqual.py $g_expr_f $skmeans_out_f $outdir $pheno $tp
+python3.7 $TIMESVECTOR/calc_clustqual.py $g_expr_f $skmeans_out_f $outdir $pheno $tp
 
 
 #################################
@@ -144,7 +144,7 @@ for i in $(eval echo {1..$k});
 do
 	expr_f=$outdir/metadata/${i}_expr.dat
 	cond_f=$outdir/metadata/${i}_cond.dat
-	python $TIMESVECTOR/mutual_rank.py -i $expr_f -c $cond_f -n 1 >> $outdir/mi_result.txt
+	python3.7 $TIMESVECTOR/mutual_rank.py -i $expr_f -c $cond_f -n 1 >> $outdir/mi_result.txt
 done
 
 
@@ -155,31 +155,13 @@ done
 echo "classifying clusters..."
 rm -rf $outdir/plots 2>/dev/null
 mkdir $outdir/plots 2>/dev/null
-python $TIMESVECTOR/classify_genes.py $g_expr_f $skmeans_out_f $outdir $pheno $tp $dt
+python3.7 $TIMESVECTOR/classify_genes.py $g_expr_f $skmeans_out_f $outdir $pheno $tp $dt
 
 
 #################################
 #
 # 5) Plotting clusters and genes
 #
-echo "plotting clusters..."
-rm -rf $outdir/plots/*_clusters/* 2>/dev/null
-mkdir $outdir/plots/DEP_clusters 2>/dev/null
-mkdir $outdir/plots/SEP_clusters 2>/dev/null
-Rscript $TIMESVECTOR/plot_clusters.R $outdir/plots/DEP_clusters_plot.dat $outdir 
-Rscript $TIMESVECTOR/plot_clusters.R $outdir/plots/SEP_clusters_plot.dat $outdir
-
-
-#################################
-#
-# 6) plotting genes
-#
-echo "plotting genes..."
-rm -rf $outdir/plots/*_genes/* 2>/dev/null 
-mkdir $outdir/plots/DEP_genes 2>/dev/null
-mkdir $outdir/plots/SEP_genes 2>/dev/null
-Rscript $TIMESVECTOR/plot_genes.R $outdir/plots/DEP_genes_plot.dat $outdir 
-Rscript $TIMESVECTOR/plot_genes.R $outdir/plots/SEP_genes_plot.dat $outdir
-
-
+echo "Ploting clusters and genes..."
+python3.7 $TIMESVECTOR/plot_clusters.py $outdir
 
