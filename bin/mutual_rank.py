@@ -67,7 +67,7 @@ def discretize_values(values, bin_num):
 	length = len(sorted_vals)
 	bin_edges = []
 	for i in range(bin_num):
-		bin_edges.append(sorted_vals[length * i / bin_num])
+		bin_edges.append(sorted_vals[length * i // bin_num])
 	bin_edges.append(float('inf'))
 	ranks = []
 	for val in values:
@@ -88,7 +88,7 @@ def rand_permut(clsList, bin_num):
 	
 	ranks = []
 	for i in range(len(clsList)):
-		r = (i / bin_num) + 1
+		r = (i // bin_num) + 1
 		ranks.append(r)
 
 	res = []
@@ -162,7 +162,7 @@ if __name__=='__main__':
 
 	i=1
 	for tup in output_tuples[0:info.ntop]:
-		print str(i)+'\t'+tup[0]+'\t\t'+str(tup[1])+'\t'+str(tup[2])
+		print (str(i)+'\t'+tup[0]+'\t\t'+str(tup[1])+'\t'+str(tup[2]))
 		i+=1
 	
 	if(info.outdir != None):
