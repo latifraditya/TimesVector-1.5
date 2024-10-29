@@ -141,6 +141,8 @@ outdir=sys.argv[3]
 pheno=int(sys.argv[4])
 tp=int(sys.argv[5])
 
+
+
 gene_expr_dict=getgenexpr(expr_f)
 clusters=read_clusters(fname, gene_expr_dict, pheno, tp) 
 bdir=outdir+"/metadata/"
