@@ -30,7 +30,7 @@ class input_info:
 
 def arg_parsing():
 	info = input_info()
-	parser = argparse.ArgumentParser(prog="mutual_rank.py")
+	parser = argparse.ArgumentParser(prog="deg_entropy.py")
 	parser.add_argument('-b', '--bin', type=int, default=20, help="number of bin")
 	parser.add_argument('-kde', '--kde', action='store_true', help="using kde")
 	parser.add_argument('-o', '--outdir', help="output directory")
