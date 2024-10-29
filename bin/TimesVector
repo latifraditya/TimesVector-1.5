@@ -111,7 +111,6 @@ cat $outdir/clust.params
 echo "------------------------------------------------------"
 echo ""
 
-
 #################################
 #
 # 1) Perform Spherical K-means clustering
@@ -123,7 +122,6 @@ if [ ! -f $skmeans_out_f ]; then
     echo -e "\n[ERROR] skmeans cluster result file \"$skmeans_out_f\" does note exit. Please check if skmeans has run successfully."
 	exit -1
 fi
-
 
 #################################
 #
