@@ -83,7 +83,8 @@ def read_clusters(fname, g, p, tp): # cluster file, gene expression file, phenot
 				kc[kclid].pheno[i]=Phenotype()
 
 			# build centroid per phenotype 
-			expr=map(float, g[gid][0])
+			# expr=map(float, g[gid][0])
+			expr=[float(x) for x in g[gid][0]]
 			v=normalize(expr[i*tp:(i*tp)+tp])
 			kc[kclid].pheno[i].vect.append(v)
 	f.close()
@@ -151,6 +152,3 @@ for c in clusters:
 
 out_expr_f.close()
 out_cond_f.close()
-
-
-
