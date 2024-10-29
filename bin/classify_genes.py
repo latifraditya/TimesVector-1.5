@@ -231,7 +231,7 @@ def SEP_test(kc, pid, p_n, t_n):
 		if kc[k].type != "NEP": continue
 		cdist=[]
 		for p in pid:
-			for gidx, gid in enumerate(kc[k].pheno[p].gid):
+			for gidx, gid in enumerate(kc[k].pheno[p].gid):	
 				if gid not in gene_pool:
 					gene_pool[gid]=Gene(gid)
 				v=kc[k].pheno[p].vect[gidx]
